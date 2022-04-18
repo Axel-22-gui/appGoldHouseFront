@@ -1,0 +1,24 @@
+ion-toolbar{
+  --background: var(--var-paleta-verde-claro);
+  --color: #fff
+}
+.table{
+  width: 90%;
+  margin: 20px auto;
+}
+thead{
+  color: var(--var-paleta-azul);
+  border-bottom: 5px solid var(--var-paleta-azul);
+}
+.num{
+  width: 10%;
+}
+.nombre{
+  width: 25%;
+}
+.fecha{
+  width: 20%;
+}
+.btnAceptar{
+  --color: var(--var-paleta-naranja);
+}

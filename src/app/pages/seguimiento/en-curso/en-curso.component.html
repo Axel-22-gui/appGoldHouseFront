@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Lista de incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col size="8"></ion-col>
+      <ion-col size="4">
+        <ion-button
+          (click)="agregarIncidencia()"
+          expand="block"
+          fill="clear"
+          shape="round"
+          *ngIf="!showForm"
+        >
+          Nueva Respuesta
+        </ion-button>
+        <ion-button
+          (click)="agregarIncidencia()"
+          expand="block"
+          fill="clear"
+          color="danger"
+          shape="round"
+          *ngIf="showForm"
+        >
+          Cerrar formulario
+        </ion-button>
+      </ion-col>
+      <ion-col *ngIf="showForm" size="12">
+        <form [formGroup]="inputForm">
+          <ion-item>
+            <ion-select
+              formControlName="seguiOfid"
+              placeholder="Seleccionar Incidencia"
+            >
+              <ion-select-option
+                *ngFor="let item of lista"
+                value="{{ item.seguiId }}"
+                >{{ item.seguiMensaje }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <ion-item class="ion-margin">
+            <ion-textarea
+              formControlName="seguiRespuesta"
+              placeholder="Relate su respuesta, mínimo 20 plabras"
+            ></ion-textarea>
+            <ion-button (click)="enviar()" color="success" slot="end"
+              >Enviar</ion-button
+            >
+          </ion-item>
+        </form>
+      </ion-col>
+      <ion-col size="12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="num ion-text-center">N°</th>
+              <th class="fecha ion-text-center">Fecha</th>
+              <th class="nombre ion-text-center">Detalle</th>
+              <th class="ion-text-center">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of lista; let i = index">
+              <td class="ion-text-center">{{ i + 1 }}</td>
+              <td class="ion-text-center">
+                {{ item.seguiFechainc | date: "dd/MM/yyyy" }}
+              </td>
+              <td class="ion-text-center">{{ item.seguiMensaje }}</td>
+              <td class="fecha ion-text-center">{{ item.seguiestado }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

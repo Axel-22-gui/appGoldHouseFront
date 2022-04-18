@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Editar Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="tarjetaForm">
+    <ion-row>
+      <ion-col *ngFor="let item of datos" size="{{ item.col }}">
+        <ion-item>
+          <ion-icon slot="start" name="{{ item.icon }}"></ion-icon>
+          <ion-input
+            placeholder="{{ item.titulo }}"
+            formControlName="{{ item.form }}"
+            type="{{ item.type }}"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="8">
+        <ion-item lines="none" class="noBackg">
+          <ion-label>Monto a descontar mensualmente: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item>
+          <ion-icon slot="start" name="cash-outline"></ion-icon>
+          <ion-input
+            [disabled]="noneed"
+            type="text"
+            formControlName="transamonto"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-button (click)="presentAlertConfirm()" expand="block" shape="round">
+      Ingresar Pago
+    </ion-button>
+  </form>
+</ion-content>

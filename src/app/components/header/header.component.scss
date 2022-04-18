@@ -1,0 +1,8 @@
+ion-toolbar {
+  --background: var(--var-paleta-azul);
+  --color: var(--var-paleta-amarillo);
+  border: 0;
+}
+.header-md::after {
+  height: 0;
+}

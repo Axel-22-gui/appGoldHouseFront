@@ -1,0 +1,84 @@
+.banner {
+  display: flex;
+  height: 40vh;
+  border: 4px solid rgba(183, 188, 192, 1);
+  background: var(--var-paleta-azul);
+  background: linear-gradient(
+    0deg,
+    var(--var-paleta-azul) 33%,
+    var(--var-paleta-azul) 54%,
+    rgb(93, 143, 194) 78%,
+    rgb(225, 248, 248) 99%
+  );
+  border-top: 0;
+  border-right: 0;
+  border-radius: 0 0 0 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.banner .brand {
+  width: 60%;
+}
+.forPass {
+  margin-top: 2rem;
+  text-align: right;
+  margin-right: 20px;
+}
+.forPass p {
+  margin: 5px;
+}
+.btnLogin {
+  margin-top: 50px;
+  margin: 0 auto;
+  width: 80%;
+  --background: var(--var-paleta-azul);
+}
+.ultimos {
+  text-align: center;
+  margin-top: 30px;
+  white-space: nowrap;
+}
+h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.linkRegistro {
+  text-decoration: none;
+  color: var(--var-paleta-naranja);
+}
+
+@media screen and (min-width: 500px) {
+  .banner .brand {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 750px) {
+  .login {
+    display: flex;
+    flex-direction: row;
+  }
+  .banner {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 0;
+  }
+  .loginTodo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    width: 50%;
+  }
+}
+@media screen and (max-height: 680px) {
+  h3 {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+.map {
+  width: 60%;
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+ion-item {
+  --min-height: 24px;
+  --border-color: var(--ion-color-dark);
+  --border-style: solid;
+}
+.btn-ubi{
+  --background:var(--var-paleta-marron);
+}
+.btn-save{
+  --background: var(--var-paleta-azul);
+  margin: 0 auto;
+  width: 80%;
+}
+ion-toolbar{
+  --background: var(--var-paleta-morado);
+  --color:#fff;
+}
+ion-label{
+  --color: var(--var-paleta-azul) !important;
+}
+ion-card-title{
+  --color: var(--var-paleta-naranja);
+}
+.photo{
+  --border-radius:50%
+}
+.lista{
+  height: 100px;
+}
+.photoss{
+  max-height: 150px;
+}

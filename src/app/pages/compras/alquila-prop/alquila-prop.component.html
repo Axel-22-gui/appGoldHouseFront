@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Alquila con nosotros</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="ion-no-margin">
+    <ion-card-header
+      class="ion-no-padding ion-padding-top ion-padding-horizontal"
+    >
+      <ion-card-title class="ion-text-center"
+        >Ingrese los detalles de la propiedad:</ion-card-title
+      >
+    </ion-card-header>
+  </ion-card>
+  <form [formGroup]="vendeForm">
+    <ion-list class="ion-padding">
+      <ion-list-header>
+        <ion-label>Datos del aviso</ion-label>
+      </ion-list-header>
+      <ion-item class="ion-margin">
+        <ion-label position="stacked">Titulo de la publicación</ion-label>
+        <ion-input formControlName="publitituloanuncio"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin">
+        <ion-label position="stacked">Descripción:</ion-label>
+        <ion-input formControlName="publiDescripcion"></ion-input>
+      </ion-item>
+      <ion-list-header>
+        <ion-label>Datos de la propiedad</ion-label>
+      </ion-list-header>
+      <ion-row>
+        <ion-col
+          *ngFor="let item of inputsDetalleCasa"
+          size="12"
+          sizeMd="{{ item.size }}"
+          class="ion-padding"
+        >
+          <ion-item class="ion-no-margin">
+            <ion-label position="{{ item.position }}">
+              {{ item.title }}
+            </ion-label>
+            <ion-input
+              [type]="item.type"
+              formControlName="{{ item.formC }}"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" sizeMd="6">
+          <ion-item class="ion-margin">
+            <ion-label position="stacked"> Meses de Alquiler: </ion-label>
+            <ion-input
+              type="text"
+              formControlName="publifechaentera"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" sizeMd="6">
+          <ion-item lines="none">
+            <ion-label position="floating">
+              <ion-icon name="location-outline"> </ion-icon>
+              Provincia
+            </ion-label>
+            <ion-select formControlName="publiProvincia">
+              <ion-select-option value="Chiclayo">Chiclayo</ion-select-option>
+              <ion-select-option value="Lambayeque"
+                >Lambayeque</ion-select-option
+              >
+              <ion-select-option value="Ferreñafe">Ferreñafe</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-list-header>
+        <ion-label>Detalles de la propiedad</ion-label>
+      </ion-list-header>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <ion-item lines="none">
+            <ion-select
+              formControlName="condicion"
+              placeholder="Elija condición"
+            >
+              <ion-select-option value="2">Buen Estado</ion-select-option>
+              <ion-select-option value="1">Regular</ion-select-option>
+              <ion-select-option value="0">Mal Estado</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-label position="fixed">Dormitorios</ion-label>
+            <ion-input formControlName="publicantCuarto"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-label position="fixed">Baños</ion-label>
+            <ion-input formControlName="publicantBanios"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-item lines="none">
+            <ion-label position="fixed">Garaje</ion-label>
+            <ion-checkbox
+              formControlName="publicochera"
+              class="ion-no-margin"
+            ></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <ion-item lines="none">
+            <ion-label position="fixed">Mascotas</ion-label>
+            <ion-checkbox
+              formControlName="publipet"
+              class="ion-no-margin"
+            ></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-list-header>
+        <ion-label>Fotos de la vivienda</ion-label>
+        <ion-button class="photo" (click)="addPhoto()">
+          <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+        </ion-button>
+      </ion-list-header>
+      <ion-row>
+        <ion-col *ngFor="let item of img" size="4">
+          <img [src]="getBackground(item)" class="photoss" alt="" />
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </form>
+  <app-map class="map"></app-map>
+  <div class="ion-margin-bottom">
+    <ion-button
+      (click)="guardarPublicacion()"
+      class="btn-save"
+      expand="block"
+      shape="round"
+    >
+      Guardar venta
+    </ion-button>
+  </div>
+</ion-content>

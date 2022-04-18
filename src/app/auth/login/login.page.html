@@ -1,0 +1,75 @@
+<ion-content>
+  <div class="login">
+    <div class="banner">
+      <img class="brand" src="assets/Imagen1.png" alt="" />
+    </div>
+    <div class="loginTodo">
+      <h3>Login</h3>
+      <form [formGroup]="loginForm">
+        <div class="content">
+          <ion-item class="ion-margin">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-input
+              formControlName="userNumerodoc"
+              placeholder="Usuario"
+            ></ion-input>
+          </ion-item>
+          <ion-item class="ion-margin">
+            <ion-icon name="key" slot="start"></ion-icon>
+            <ion-input
+              type="password"
+              formControlName="userPassword"
+              placeholder="Contraseña"
+            ></ion-input>
+          </ion-item>
+        </div>
+        <div class="forPass">
+          <p>Olvidaste tu contraseña?</p>
+        </div>
+        <ion-button
+          (click)="llevar()"
+          class="btnLogin"
+          expand="block"
+          shape="round"
+        >
+          <ion-icon name="log-in-outline"></ion-icon> Ingresar
+        </ion-button>
+      </form>
+      <div class="ultimos">
+        <p>No tienes cuenta aún?</p>
+        <a class="linkRegistro" routerLink="/register">Registro</a>
+      </div>
+      <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button color="light">
+          <ion-icon
+            md="caret-back"
+            ios="chevron-back-circle-outline"
+          ></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+          <ion-fab-button
+            href="https://www.facebook.com/Gold-House-108594141784093"
+            target="_blank"
+            color="primary"
+          >
+            <ion-icon name="logo-facebook"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            href="https://www.instagram.com/goldhouselam"
+            target="_blank"
+            color="tertiary"
+          >
+            <ion-icon name="logo-instagram"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            href="https://www.youtube.com/channel/UCNGWTLdAMBAXOYNk9UWDOVQ"
+            target="_blank"
+            color="danger"
+          >
+            <ion-icon name="logo-youtube"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </div>
+  </div>
+</ion-content>

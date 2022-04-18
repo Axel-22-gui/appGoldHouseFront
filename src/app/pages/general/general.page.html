@@ -1,0 +1,61 @@
+<app-header></app-header>
+<ion-menu side="start" id="menuId" contentId="main-content">
+  <ion-content>
+    <ion-list id="inbox-list">
+      <ion-list-header>
+        <img src="assets/Imagen1.png" class="logo" alt="" />
+      </ion-list-header>
+      <div class="nota">
+        <ion-note class="nota1">goldhouselam@gmail.com</ion-note>
+      </div>
+
+      <ion-menu-toggle
+        auto-hide="true"
+        *ngFor="let p of appPages; let i = index"
+      >
+        <ion-item
+          routerDirection="root"
+          [routerLink]="[p.url]"
+          lines="none"
+          detail="false"
+          routerLinkActive="selected"
+        >
+          <ion-icon
+            slot="start"
+            [ios]="p.icon + '-outline'"
+            [md]="p.icon + '-sharp'"
+          ></ion-icon>
+          <ion-label>{{ p.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle
+        auto-hide="true"
+        *ngFor="let p of appPages; let i = index"
+      >
+        <ion-item
+          *ngIf="showAdm()"
+          routerDirection="root"
+          routerLink="/general/admin"
+          lines="none"
+          detail="false"
+          routerLinkActive="selected"
+        >
+          <ion-label>Aministrador</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" (click)="cerrar()">
+        <ion-item lines="none" detail="false" routerLinkActive="selected">
+          <ion-icon
+            slot="start"
+            [ios]="'log-out-outline'"
+            [md]="'log-out-sharp'"
+          ></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-content>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-content>

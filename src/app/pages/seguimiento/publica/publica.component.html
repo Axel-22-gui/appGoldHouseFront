@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ofertas disponibles</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="num ion-text-center">N°</th>
+        <th class="fecha ion-text-center">Fecha</th>
+        <th class="nombre ion-text-center">Usuario</th>
+        <th class="ion-text-center">Monto</th>
+        <th class="ion-text-center">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ofertas; let i = index">
+        <td class="ion-text-center">{{ i + 1 }}</td>
+        <td class="ion-text-center">{{ item.ofFecha | date: "dd/MM/yyyy" }}</td>
+        <td class="ion-text-center">{{ item.nombre }}</td>
+        <td class="fecha ion-text-center">
+          {{ item.ofmonto | currency: "S./  " }}
+        </td>
+        <td class="ion-text-center">
+          <ion-button
+            (click)="aceptarOferta(item.ofIdoferta)"
+            shape="round"
+            fill="clear"
+            color="success"
+            class="btnAceptar ion-no-padding"
+          >
+            <ion-icon
+              slot="icon-only"
+              name="checkmark-circle-outline"
+            ></ion-icon>
+          </ion-button>
+          <ion-button
+            (click)="rechazarOferta(item.ofIdoferta)"
+            shape="round"
+            fill="clear"
+            color="danger"
+            class="btnAceptar ion-no-padding"
+          >
+            <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

@@ -1,0 +1,102 @@
+<ion-card *ngIf="respuesta !== undefined">
+  <ion-item lines="none">
+    <ion-button slot="end" color="danger" shape="round" (click)="cerrarModal()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+    <div class="titulos ion-text-center">
+      <h4 class="classTitle">
+        {{ respuesta.publitituloanuncio }}
+      </h4>
+      <h4 class="classSubtitle">
+        {{ respuesta.publiprecio | currency: "S/. " }}
+      </h4>
+    </div>
+    <ion-button
+      class="ion-no-margin"
+      slot="start"
+      color="success"
+      shape="round"
+      (click)="ofertar()"
+    >
+      <i class="fa-solid fa-money-bill"></i> Ofertar
+    </ion-button>
+  </ion-item>
+  <div class="ion-margin" *ngIf="showMonto">
+    <form [formGroup]="monto">
+      <ion-row>
+        <ion-col size="9">
+          <ion-item>
+            <ion-input
+              type="text"
+              formControlName="ofmonto"
+              placeholder="Ingrese Monto"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button
+            (click)="sendOferta()"
+            expand="block"
+            shape="round"
+            class="btnSend"
+          >
+            <ion-icon name="send-outline"></ion-icon>
+            Enviar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+          <ion-slide
+            *ngFor="let item of respuesta.imagenes"
+            class="swiperSlide"
+            class="ion-no-padding"
+          >
+            <img class="imgSlide" [src]="returnImg(item.imagensrc)" alt="" />
+          </ion-slide>
+        </ion-slides>
+        <h3>Ubicación</h3>
+        <app-map [latLong]="latLng" class="map"></app-map>
+      </ion-col>
+      <ion-col size="5" class="margen">
+        <ion-list>
+          <ion-list-header lines="full">
+            <ion-label class="ion-text-center ion-no-margin"
+              >Detalles del anuncio</ion-label
+            >
+          </ion-list-header>
+          <ion-item lines="none">
+            <ion-label class="ion-no-margin"
+              >Área: {{ respuesta.publiarea }} m2</ion-label
+            >
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-no-margin"
+              >Provincia:
+              {{ respuesta.publiProvincia || "No registra" }}</ion-label
+            >
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-no-margin"
+              >Dirección: {{ respuesta.publilocalizacion }}</ion-label
+            >
+          </ion-item>
+          <ion-item lines="none" *ngFor="let item2 of respuesta.detallesCasa">
+            <ion-label class="ion-no-margin"
+              >{{ item2.descripcion }}:
+              {{ item2.valor || item2.cantidad }}</ion-label
+            >
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="7" class="margen">
+        <h4 class="title">Descripción:</h4>
+        {{ respuesta.publiDescripcion }}</ion-col
+      >
+    </ion-row>
+  </ion-grid>
+</ion-card>

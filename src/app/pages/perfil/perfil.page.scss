@@ -1,0 +1,34 @@
+ion-toolbar {
+  --background: var(--var-paleta-azul);
+  --color: var(--var-paleta-amarillo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+}
+.containerImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgPerfil {
+  border-radius: 50%;
+  width: 40%;
+}
+h3 {
+  margin: 5px auto;
+  font-family: cursive;
+}
+.item-native {
+  text-align: center;
+}
+.btn-editar {
+  width: max-content;
+}
+@media screen and (min-width: 600px) {
+  .imgPerfil {
+    width: 10%;
+  }
+}

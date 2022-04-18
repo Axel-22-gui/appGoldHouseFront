@@ -1,0 +1,311 @@
+<ion-content>
+  <form [formGroup]="filterForm">
+    <ion-item class="ion-margin">
+      <ion-label class="none">
+        <i class="fa-solid fa-house"></i>
+      </ion-label>
+      <ion-input type="text" formControlName="publiDescripcion"></ion-input>
+      <ion-button fill="clear" shape="round" color="primary">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </ion-button>
+    </ion-item>
+
+    <ion-item class="scrollable" lines="none" color="dark-shade">
+      <ion-button
+        (click)="todos()"
+        slot="end"
+        fill="solid"
+        class="ion-margin"
+        shape="round"
+      >
+        Todos
+      </ion-button>
+      <ion-button
+        slot="end"
+        fill="outline"
+        class="ion-margin btn-tabs"
+        shape="round"
+        (click)="ventas()"
+      >
+        Ventas
+      </ion-button>
+      <ion-button
+        slot="end"
+        fill="outline"
+        class="ion-margin btn-tabs"
+        shape="round"
+        (click)="alquil()"
+      >
+        Alquileres
+      </ion-button>
+    </ion-item>
+    <ion-grid fixed>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="title">
+              <ion-icon name="sparkles-outline"></ion-icon>
+              Favoritos
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+              <ion-slide
+                *ngFor="let item of favoritos"
+                class="swiperSlide"
+                class="ion-no-padding"
+              >
+                <ion-row>
+                  <ion-col size-lg="4" size="12">
+                    <img class="imgSlide" src="assets/img1.jfif" alt="" />
+                  </ion-col>
+                  <ion-col size-lg="8" size="12">
+                    <ion-card class="carta ion-no-margin">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-left">
+                          {{item.publiprecio | currency:'S/. '}}
+                        </ion-card-title>
+                        <ion-card-subtitle class="ion-text-left">
+                          {{item.publitituloanuncio}}
+                        </ion-card-subtitle>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p class="ion-text-left">{{item.publiDescripcion}}</p>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-slide>
+              <ion-slide>
+                <ion-card class="carta" class="ion-padding">
+                  <ion-card-content>
+                    <ion-icon name="arrow-redo"></ion-icon>
+                    <h3>Ver más productos</h3>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+            </ion-slides>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-row>
+        <ion-col size-lg="4" size="12">
+          <ion-list class="ion-no-padding">
+            <h3 class="ion-text-center title">
+              <i class="fa-solid fa-magnifying-glass"></i> ¿Qué está buscando?
+            </h3>
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label class="separador"
+                  ><i class="fa-solid fa-filter"></i> Filtros</ion-label
+                >
+              </ion-item-divider>
+
+              <ion-item lines="none">
+                <ion-label position="floating">
+                  <ion-icon name="location-outline"> </ion-icon>
+                  Ubicación
+                </ion-label>
+                <ion-select formControlName="publiProvincia" multiple="true">
+                  <ion-select-option value="chiclayo"
+                    >Chiclayo</ion-select-option
+                  >
+                  <ion-select-option value="lambayeque"
+                    >Lambayeque</ion-select-option
+                  >
+                  <ion-select-option value="ferreñafe"
+                    >Ferreñafe</ion-select-option
+                  >
+                </ion-select>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="">
+                  <ion-icon name="home-outline"> </ion-icon>
+                  Área
+                </ion-label>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-input
+                      type="text"
+                      formControlName="publiMinimaArea"
+                      placeholder="Min"
+                    ></ion-input>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input
+                      type="text"
+                      formControlName="publiMaximaArea"
+                      placeholder="Max"
+                    ></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>
+                  <ion-icon name="cash-outline"></ion-icon>
+                  Precio
+                </ion-label>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-input
+                      type="text"
+                      formControlName="publiMinimoPrecio"
+                      placeholder="Min"
+                    ></ion-input>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input
+                      type="text"
+                      formControlName="publiMaximoPrecio"
+                      placeholder="Max"
+                    ></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item-divider>
+                <ion-label class="separador">Detalles</ion-label>
+              </ion-item-divider>
+
+              <ion-item lines="none">
+                <ion-label>
+                  <ion-icon name="bed-outline"></ion-icon> Dormitorios
+                </ion-label>
+                <ion-input
+                  formControlName="publicantCuarto"
+                  type="text"
+                ></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label><i class="fa-solid fa-toilet"></i> Baños</ion-label>
+                <ion-input
+                  formControlName="publicantBanios"
+                  type="text"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item lines="none ion-no-padding">
+                <ion-row radio-group class="btn-radio ion-no-padding">
+                  <ion-col size-lg="6" class="ion-no-padding">
+                    <ion-item lines="none">
+                      <ion-label>
+                        <ion-icon name="car-sport-outline"></ion-icon>
+                        Garaje
+                      </ion-label>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-margin ion-no-padding">
+                    <ion-radio-group formControlName="publicochera">
+                      <ion-row>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>Sí</ion-label>
+                            <ion-radio value="1"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>No</ion-label>
+                            <ion-radio value="0"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                    </ion-radio-group>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item lines="none ion-no-padding">
+                <ion-row radio-group class="btn-radio ion-no-padding">
+                  <ion-col size-lg="6" class="ion-no-padding">
+                    <ion-item lines="none">
+                      <ion-label
+                        ><i class="fa-solid fa-person-swimming"></i>
+                        Piscina</ion-label
+                      >
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-margin ion-no-padding">
+                    <ion-radio-group formControlName="publipiscina">
+                      <ion-row>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>Sí</ion-label>
+                            <ion-radio value="1"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>No</ion-label>
+                            <ion-radio value="0"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                    </ion-radio-group>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item lines="none ion-no-padding">
+                <ion-row radio-group class="btn-radio ion-no-padding">
+                  <ion-col size-lg="6" class="ion-no-padding">
+                    <ion-item lines="none">
+                      <ion-label
+                        ><i class="fa-solid fa-paw"></i> Mascota</ion-label
+                      >
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-margin ion-no-padding">
+                    <ion-radio-group formControlName="publipet">
+                      <ion-row>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>Sí</ion-label>
+                            <ion-radio value="1"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col size="6" class="ion-no-padding">
+                          <ion-item class="ion-no-padding" lines="none">
+                            <ion-label>No</ion-label>
+                            <ion-radio value="0"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                    </ion-radio-group>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-item-group>
+          </ion-list>
+          <div class="ion-text-center">
+            <ion-button class="btnAplicar" (click)="filtros()" shape="round">
+              <ion-icon slot="start" name="filter-outline"></ion-icon>
+              Aplicar
+            </ion-button>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-lg="8">
+          <ion-row>
+            <ion-col size="12" size-sm="6" *ngFor="let item of publis">
+              <ion-card (click)="presentModal(item.publiid)">
+                <img
+                  class="imgVenta"
+                  [src]="returnImg(item.imagenes[0].imagensrc)"
+                  alt=""
+                />
+                <ion-card-header>
+                  <ion-card-title
+                    >{{item.publiprecio | currency:'S/. '}}</ion-card-title
+                  >
+                  <ion-card-subtitle>
+                    {{item.publitituloanuncio}}
+                  </ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content> {{item.publiDescripcion}} </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <app-footer></app-footer>
+</ion-content>

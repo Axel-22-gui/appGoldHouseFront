@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Editar Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="editForm">
+    <ion-row>
+      <ion-col *ngFor="let item of datos" size="{{ item.col }}">
+        <ion-item>
+          <ion-input
+            placeholder="{{ item.titulo }}"
+            formControlName="{{ item.form }}"
+            type="{{ item.type }}"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-button (click)="editarDatos()" expand="block" shape="round">
+      Editar Datos
+    </ion-button>
+  </form>
+</ion-content>

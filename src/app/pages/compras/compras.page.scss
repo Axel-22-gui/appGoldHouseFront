@@ -1,0 +1,55 @@
+.banner {
+  color: var(--ion-color-light-shade);
+  font-style: italic;
+  background: var(--ion-text-color-light);
+  font-weight: bold;
+}
+.img-banner {
+  width: 100%;
+  border-radius: 0 0 25% 25%;
+}
+.botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.guion {
+  color: var(--var-paleta-amarillo);
+}
+ion-content {
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+ion-card {
+  height: 90%;
+}
+ion-card-content {
+  text-align: justify;
+}
+ion-card-title {
+  color: #e9723d;
+}
+ion-button {
+  width: 60%;
+  margin: 5px auto;
+}
+.btnVende {
+  --background: var(--var-paleta-azul);
+}
+.btnAlquila {
+  --background: var(--var-paleta-naranja);
+}
+
+@media screen and (max-width: 850px) {
+  ion-button {
+    width: 80%;
+    margin: 5px auto;
+  }
+}
+@media screen and (max-width: 300px) {
+  ion-button {
+    width: 100%;
+    margin: 5px auto;
+  }
+}

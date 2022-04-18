@@ -1,0 +1,118 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="banner" size="12">
+        <img class="img-banner" src="/assets/bannerVentas.jpg" alt="" />
+      </ion-col>
+      <ion-col size="12" class="ion-padding">
+        <h3>
+          <ion-icon class="guion" name="caret-forward-outline"></ion-icon>
+          Principales ventajas de vender con nosotros
+        </h3>
+        <ion-row>
+          <ion-col size="12" size-sm="6" size-lg="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="business-outline"></ion-icon>
+                  Asegura la preventa de tu inmueble
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                La preventa es una oportunidad para todo público que quiera
+                adquirir una casa, departamento u oficina. Gold House asegura
+                esta preventa mediante su plataforma a solo unos clicks
+                brindando confianza, garantía y accesibilidad a todos nuestros
+                usuarios.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-sm="6" size-lg="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="trending-up-outline"></ion-icon>
+                  Incrementa tus ganancias
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content
+                >Empieza a generar mayores ganancias con tendencias de nuestra
+                plataforma digital en el rubro inmobiliario.</ion-card-content
+              >
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-sm="6" size-lg="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="people-circle-outline"></ion-icon>
+                  Accede a más clientes en tiempo real
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                El 60% de los que revisan las ofertas por internet lo hacen por
+                los aplicativos y la versión móvil del sitio web.Gold House te
+                permite acceder a más clientes y hacer crecer tu negocio.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-sm="6" size-lg="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="globe-outline"></ion-icon>
+                  Obtenga un nuevo canal de ventas virtual
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Obtener un nuevo canal es la forma mas rápida de llegar a más
+                clientes, en Gold House tendrás gran alcance en poco tiempo.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-sm="6" size-lg="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon name="podium-outline"></ion-icon>
+                  Compite a nivel regional
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Que tu negocio tenga una visión regional compitiendo en un
+                entorno virtual con el apoyo de Gold House.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12">
+        <ion-row class="ion-padding">
+          <ion-col size="12" size-md="6">
+            <ion-button
+              class="btnVende"
+              (click)="presentModalVende()"
+              shape="round"
+              expand="block"
+            >
+              <ion-icon slot="start" name="cash-outline"></ion-icon>
+              Vende propiedades
+            </ion-button>
+          </ion-col>
+          <ion-col class="ion-margin-top" size="12" size-md="6">
+            <ion-button
+              class="btnAlquila"
+              (click)="presentModalAlquila()"
+              shape="round"
+              expand="block"
+            >
+              <ion-icon slot="start" name="storefront-outline"></ion-icon>
+              Alquila propiedades
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

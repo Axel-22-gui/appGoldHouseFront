@@ -1,0 +1,245 @@
+<ion-content *ngIf="misPubs!==undefined">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Mis Publicaciones</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+              <ion-slide
+                *ngFor="let item of misPubs.misPublis"
+                class="swiperSlide"
+                class="ion-no-padding"
+              >
+                <ion-row>
+                  <ion-col size-lg="4" size="12">
+                    <img
+                      class="imgSlide"
+                      [src]="returnImg(item.imagenes[0].imagensrc)"
+                      alt=""
+                    />
+                  </ion-col>
+                  <ion-col size-lg="8" size="12">
+                    <ion-card class="carta ion-no-margin">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-left">
+                          {{item.publitituloanuncio}}
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <h5 class="ion-text-left">
+                          <b>Ubicación:</b> {{item.publilocalizacion}}
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Área:</b> {{item.publiarea}}m2
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Precio:</b> {{item.publiprecio | currency: "S/. "}}
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Estado:</b> {{item.publiDescripcion}}
+                        </h5>
+                        <ion-button
+                          expand="block"
+                          color="success"
+                          size="small"
+                          (click)="presentModalPubli(item.publiid)"
+                          shape="round"
+                        >
+                          Ver Ofertas
+                        </ion-button>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-slide>
+            </ion-slides>
+            <div class="ion-text-center" *ngIf="misPubs.misPublis.length === 0">
+              No tiene Publicaciones Realizadas
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Mis Compras</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+              <ion-slide
+                *ngFor="let item of misPubs.misPubliscompras"
+                class="swiperSlide"
+                class="ion-no-padding"
+              >
+                <ion-row>
+                  <ion-col size-lg="4" size="12">
+                    <img
+                      class="imgSlide"
+                      [src]="returnImg(item.imagenes[0].imagensrc)"
+                      alt=""
+                    />
+                  </ion-col>
+                  <ion-col size-lg="8" size="12">
+                    <ion-card class="carta ion-no-margin">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-left">
+                          {{item.publitituloanuncio}}
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <h5 class="ion-text-left">
+                          <b>Ubicación:</b> {{item.publilocalizacion}}
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Área:</b> {{item.publiarea}}m2
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Precio: </b> {{item.publiprecio}}
+                        </h5>
+                        <h5 class="ion-text-left"><b>Estado:</b> En proceso</h5>
+                        <ion-button
+                          color="danger"
+                          expand="block"
+                          size="small"
+                          shape="round"
+                          (click)="presentModalCompras(item.ofertasusu)"
+                        >
+                          Reportar Incidencias
+                        </ion-button>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-slide>
+            </ion-slides>
+            <div
+              class="ion-text-center"
+              *ngIf="misPubs.misPubliscompras.length === 0"
+            >
+              No tiene Compras Realizadas
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Operaciones Culminadas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+              <ion-slide
+                *ngFor="let item of misPubs.misPublisculminadas"
+                class="swiperSlide"
+                class="ion-no-padding"
+              >
+                <ion-row>
+                  <ion-col size-lg="5" size="12">
+                    <img
+                      class="imgSlide"
+                      [src]="returnImg(item.imagenes[0].imagensrc)"
+                      alt=""
+                    />
+                  </ion-col>
+                  <ion-col size-lg="7" size="12">
+                    <ion-card class="carta ion-no-margin">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-left">
+                          {{item.publitituloanuncio}}
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <h5 class="ion-text-left">
+                          <b>Ubicación:</b> {{item.publilocalizacion}}
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Área:</b> {{item.publiarea}}m2
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Precio: </b> {{item.publiprecio}}
+                        </h5>
+                        <h5 class="ion-text-left"><b>Estado:</b> Culminado</h5>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-slide>
+            </ion-slides>
+            <div
+              class="ion-text-center"
+              *ngIf="misPubs.misPublisculminadas.length === 0"
+            >
+              No tiene Operaciones Culminadas
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Operaciones en Curso</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides class="swiper" mode="ios" [options]="slideOpts">
+              <ion-slide
+                *ngFor="let item of misPubs.misPublisenproceso"
+                class="swiperSlide"
+                class="ion-no-padding"
+              >
+                <ion-row>
+                  <ion-col size-lg="4" size="12">
+                    <img
+                      class="imgSlide"
+                      [src]="returnImg(item.imagenes[0].imagensrc)"
+                      alt=""
+                    />
+                  </ion-col>
+                  <ion-col size-lg="8" size="12">
+                    <ion-card class="carta ion-no-margin">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-left">
+                          {{item.publitituloanuncio}}
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <h5 class="ion-text-left">
+                          <b>Ubicación:</b> {{item.publilocalizacion}}
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Área:</b> {{item.publiarea}}m2
+                        </h5>
+                        <h5 class="ion-text-left">
+                          <b>Precio: </b> {{item.publiprecio}}
+                        </h5>
+                        <h5 class="ion-text-left"><b>Estado:</b> En proceso</h5>
+                        <ion-button
+                          color="secondary"
+                          expand="block"
+                          size="small"
+                          (click)="presentModalProceso(item.ofertasusu)"
+                          shape="round"
+                        >
+                          Ver Historial
+                        </ion-button>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-slide>
+            </ion-slides>
+            <div
+              class="ion-text-center"
+              *ngIf="misPubs.misPublisculminadas.length === 0"
+            >
+              No tiene Operaciones en Curso
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

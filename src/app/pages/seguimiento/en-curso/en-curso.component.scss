@@ -1,0 +1,17 @@
+ion-toolbar{
+  --background: var(--var-paleta-marron);
+  --color: #fff
+}
+.table{
+  width: 90%;
+  margin: 0 auto;
+}
+tr{
+  border-bottom: 1px solid var(--var-paleta-azul);
+}
+th{
+  border-bottom: 3px solid var(--var-paleta-azul);
+}
+th{
+  font-weight: bold;
+}

@@ -1,0 +1,59 @@
+span.ion-text-left {
+  margin-right: auto;
+}
+.swiper {
+  width: 90%;
+}
+.ranges {
+  padding: 0 10px;
+}
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+.imgSlide {
+  width: 60%;
+}
+.carta {
+  height: 100%;
+}
+.scrollable {
+  overflow-x: auto;
+}
+.separador {
+  font-weight: bold;
+}
+.btn-radio {
+  width: 100%;
+}
+ion-label {
+  white-space: normal !important;
+  width: 100%;
+}
+.none {
+  white-space: nowrap !important;
+  width: auto !important;
+}
+.imgVenta {
+  height: 200px;
+  width: 100%;
+}
+.btn-tabs {
+  --color: var(--var-paleta-azul);
+  --border-color: var(--var-paleta-azul);
+}
+.title {
+  --color: var(--var-paleta-naranja);
+  color: var(--var-paleta-naranja);
+  font-weight: bold;
+}
+.btnAplicar{
+  width: 60%;
+  margin: 10px auto;
+  --background: var(--var-paleta-naranja);
+}

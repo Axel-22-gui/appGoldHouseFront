@@ -1,0 +1,85 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/bannerRegister.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+}
+.pipip {
+  width: 60%;
+}
+.formulario {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.formRegister {
+  width: 60%;
+
+  background: var(--var-paleta-azul);
+  border-radius: 3%;
+}
+form {
+  display: contents;
+}
+h4 {
+  display: block;
+}
+
+ion-item {
+  --min-height: 24px;
+}
+a {
+  text-decoration: none;
+  color: var(--var-paleta-naranja);
+  font-weight: bold;
+}
+.pipip img {
+  display: none;
+}
+@media screen and(max-width:950px) {
+  .formulario .formRegister {
+    width: 100%;
+    background: var(--var-paleta-azul);
+  }
+}
+@media screen and(max-width:650px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    background: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .pipip {
+    width: 100%;
+  }
+  .pipip img {
+    display: block;
+  }
+  .formulario {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--var-paleta-azul);
+    background: linear-gradient(
+      0deg,
+      rgb(152, 201, 201) 33%,
+      rgb(78, 122, 167) 54%,
+      var(--var-paleta-azul) 78%,
+      var(--var-paleta-azul) 99%
+    );
+  }
+  .formulario .formRegister {
+    width: 80%;
+    background: transparent;
+  }
+}

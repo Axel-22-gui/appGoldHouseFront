@@ -1,0 +1,31 @@
+ion-item {
+  --min-height: 24px;
+  --border-color: var(--ion-color-dark);
+  --border-style: solid;
+}
+.btn-ubi{
+  --background:var(--var-paleta-marron);
+}
+.btn-save{
+  --background: var(--var-paleta-naranja);
+  margin: 0 auto;
+  width: 80%;
+}
+ion-toolbar{
+  --background: var(--var-paleta-marron);
+  --color:#fff;
+}
+ion-label{
+  --color: var(--var-paleta-naranja) !important;
+}
+ion-card-title{
+  --color: var(--var-paleta-azul);
+}
+.photo{
+  --border-radius:50%
+}
+.map {
+  width: 60%;
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}

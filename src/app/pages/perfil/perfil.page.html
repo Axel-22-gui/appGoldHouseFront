@@ -1,0 +1,81 @@
+<ion-content class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="containerImg" size="12">
+          <img class="imgPerfil" src="/assets/img2.jpg" alt="" />
+          <h4>
+            {{token.getNombre()|| 'No registra'}} {{token.getApellido() || 'No'+
+            'registra'}}
+          </h4>
+          <ion-button
+            *ngIf="token.getPremiun()==='Normal'"
+            expand="block"
+            color="warning"
+            (click)="pagamePoFavo()"
+            shape="round"
+          >
+            <ion-icon name="sparkles-outline"></ion-icon>
+            Upgrade Now
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-grid fixed>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-md="6">
+        <h3 class="ion-text-center">Datos Personales</h3>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>Nombre: {{token.getNombre()|| 'No registra'}}</ion-label>
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label
+            >Apellido: {{token.getApellido() || 'No registra'}}</ion-label
+          >
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>DNI: {{token.getDni() || 'No registra'}}</ion-label>
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label
+            >Teléfono: {{token.getTelefono()|| 'No registra'}}</ion-label
+          >
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label
+            >Dirección: {{token.getDireccion()|| 'No registra'}}</ion-label
+          >
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>Correo: {{token.getEmail()|| 'No registra'}}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <h3 class="ion-text-center">Datos de la aplicación</h3>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label> Ventas concretadas: 10</ion-label>
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label> Compras realizadas: 5</ion-label>
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>Calificación Ventas: 5.5</ion-label>
+        </ion-item>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>Calificación Compras: 8.8</ion-label>
+        </ion-item>
+        <ion-button
+          class="btn-editar"
+          (click)="presentModal()"
+          color="success"
+          shape="round"
+        >
+          <ion-icon name="create-outline"></ion-icon>
+          Editar Datos
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>
